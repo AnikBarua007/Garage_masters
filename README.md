@@ -20,3 +20,4 @@ scalability.
 Design patterns:
 <br>
 1. Observer design pattern: Observer design pattern is used here to notify the user when there is an available supply for the accessories they added to their wishlist.
+2. Strategy design pattern: This design pattern is used to search for accessories between two categories: 'car' and 'bike'.  
