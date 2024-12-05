@@ -53,6 +53,12 @@ nav ul li a {
   height: 20px;
   margin-right: 5px;
 }
+.signinRegister a {
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
 main {
   padding: 20px 0;
   display: flex;
