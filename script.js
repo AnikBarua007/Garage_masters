@@ -54,3 +54,65 @@ function addToCart(productId) {
 function addToWishlist(productId) {
     // Implement add to wishlist
 }
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    // Calculate package prices
+    const calculatePackagePrice = (packageBox) => {
+        const basePrice = parseFloat(packageBox.getAttribute("data-base-price"));
+        const quantity = parseInt(packageBox.querySelector(".quantity-input").value) || 0;
+        return basePrice * quantity;
+    };
+
+    // Update total price of all packages
+    const updateTotalPrice = () => {
+        let totalPrice = 0;
+        document.querySelectorAll(".package-box").forEach((packageBox) => {
+            totalPrice += calculatePackagePrice(packageBox);
+        });
+        document.getElementById("totalPrice").innerText = `Total Price of Selected Packages: ৳${totalPrice.toFixed(2)}`;
+    };
+
+    // Event listeners for package quantity buttons
+    document.querySelectorAll(".package-box").forEach((packageBox) => {
+        const minusButton = packageBox.querySelector(".minus");
+        const plusButton = packageBox.querySelector(".plus");
+        const quantityInput = packageBox.querySelector(".quantity-input");
+
+        minusButton.addEventListener("click", () => {
+            const currentValue = parseInt(quantityInput.value) || 0;
+            if (currentValue > 0) {
+                quantityInput.value = currentValue - 1;
+                packageBox.querySelector(".price-value").innerText = calculatePackagePrice(packageBox).toFixed(2);
+                updateTotalPrice();
+            }
+        });
+
+        plusButton.addEventListener("click", () => {
+            const currentValue = parseInt(quantityInput.value) || 0;
+            quantityInput.value = currentValue + 1;
+            packageBox.querySelector(".price-value").innerText = calculatePackagePrice(packageBox).toFixed(2);
+            updateTotalPrice();
+        });
+
+        quantityInput.addEventListener("input", () => {
+            quantityInput.value = Math.max(0, parseInt(quantityInput.value) || 0);
+            packageBox.querySelector(".price-value").innerText = calculatePackagePrice(packageBox).toFixed(2);
+            updateTotalPrice();
+        });
+    });
+
+    // "Go to Cart" button functionality
+    const goToCartButton = document.getElementById("goToCartBtn");
+    if (goToCartButton) {
+        goToCartButton.addEventListener("click", () => {
+            alert("Redirecting to cart...");
+            // Implement cart redirection logic
+        });
+    }
+
+    // Initial total price calculation
+    updateTotalPrice();
+});
