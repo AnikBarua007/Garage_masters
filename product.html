@@ -223,5 +223,54 @@
             text-align: center;
         }
     </style>
+    <script>
+    // Function to get query parameters
+    function getQueryParams() {
+        const urlParams = new URLSearchParams(window.location.search);
+        return {
+            name: urlParams.get('name'),
+            price: urlParams.get('price'),
+            image: urlParams.get('image'),
+        };
+    }
+
+    // Populate product details dynamically
+    document.addEventListener("DOMContentLoaded", () => {
+        const { name, price, image } = getQueryParams();
+
+        if (name && price && image) {
+            document.getElementById("product-name").textContent = name;
+            document.getElementById("product-price").textContent = `৳ ${price}`;
+            document.getElementById("product-main-image").src = image;
+
+            // Add to cart functionality
+            document.querySelector(".add-to-cart").addEventListener("click", () => {
+                const quantity = document.getElementById("quantity").value;
+                const color = document.getElementById("color").value;
+
+                // Get existing cart data from localStorage
+                const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+                // Add product to the cart
+                cart.push({
+                    name,
+                    price,
+                    image,
+                    quantity: parseInt(quantity),
+                    color,
+                });
+
+                // Save updated cart to localStorage
+                localStorage.setItem("cart", JSON.stringify(cart));
+
+                // Redirect to cart page
+                window.location.href = "cart.html";
+            });
+        } else {
+            document.body.innerHTML = "<h1>Product not found!</h1>";
+        }
+    });
+</script>
+
 </body>
 </html>

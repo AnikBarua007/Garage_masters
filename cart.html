@@ -127,5 +127,63 @@
         </div>
         <button class="checkout-btn" onclick="proceedToCheckout()">Proceed to Checkout</button>
     </div>
+    <script>
+    // Load cart items from localStorage
+    document.addEventListener("DOMContentLoaded", () => {
+        const cartTableBody = document.querySelector(".cart-table tbody");
+        const orderSummary = document.querySelector(".container div h3 + p");
+
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        // Check if the cart is empty
+        if (cart.length === 0) {
+            cartTableBody.innerHTML = `<tr><td colspan="5">Your cart is empty!</td></tr>`;
+            orderSummary.textContent = "Subtotal: $0.00";
+            return;
+        }
+
+        // Populate cart table
+        let subtotal = 0;
+        cartTableBody.innerHTML = cart
+            .map((item, index) => {
+                const total = parseFloat(item.price) * item.quantity;
+                subtotal += total;
+                return `
+                    <tr>
+                        <td>${item.name} (${item.color})</td>
+                        <td>৳ ${item.price}</td>
+                        <td><input type="number" class="quantity-input" value="${item.quantity}" min="1" data-index="${index}"></td>
+                        <td>৳ ${total.toFixed(2)}</td>
+                        <td><button class="remove-btn" data-index="${index}">Remove</button></td>
+                    </tr>
+                `;
+            })
+            .join("");
+
+        // Update order summary
+        orderSummary.textContent = `Subtotal: ৳ ${subtotal.toFixed(2)}`;
+
+        // Update quantities
+        document.querySelectorAll(".quantity-input").forEach(input => {
+            input.addEventListener("change", e => {
+                const index = e.target.dataset.index;
+                cart[index].quantity = parseInt(e.target.value);
+                localStorage.setItem("cart", JSON.stringify(cart));
+                window.location.reload();
+            });
+        });
+
+        // Remove items from the cart
+        document.querySelectorAll(".remove-btn").forEach(button => {
+            button.addEventListener("click", e => {
+                const index = e.target.dataset.index;
+                cart.splice(index, 1);
+                localStorage.setItem("cart", JSON.stringify(cart));
+                window.location.reload();
+            });
+        });
+    });
+</script>
+
 </body>
 </html>
