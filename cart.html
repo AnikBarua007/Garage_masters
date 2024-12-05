@@ -123,22 +123,29 @@
         </table>
         <div>
             <h3>Order Summary</h3>
-            <p>Subtotal: $25.00</p>
+            <p id="subtotal">Subtotal: $25.00</p>
+            <p id="discount">Discount: $0.00</p>
+            <p id="total">Total: $25.00</p>
         </div>
         <button class="checkout-btn" onclick="proceedToCheckout()">Proceed to Checkout</button>
     </div>
+    <script src="voucherFactory.js"></script>
     <script>
     // Load cart items from localStorage
     document.addEventListener("DOMContentLoaded", () => {
         const cartTableBody = document.querySelector(".cart-table tbody");
-        const orderSummary = document.querySelector(".container div h3 + p");
+        const subtotalElement = document.getElementById("subtotal");
+        const discountElement = document.getElementById("discount");
+        const totalElement = document.getElementById("total");
 
         const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
         // Check if the cart is empty
         if (cart.length === 0) {
             cartTableBody.innerHTML = `<tr><td colspan="5">Your cart is empty!</td></tr>`;
-            orderSummary.textContent = "Subtotal: $0.00";
+            subtotalElement.textContent = "Subtotal: $0.00";
+            discountElement.textContent = "Discount: $0.00";
+            totalElement.textContent = "Total: $0.00";
             return;
         }
 
@@ -160,8 +167,15 @@
             })
             .join("");
 
+        // Apply voucher discount using Factory pattern
+        const voucher = VoucherFactory.createVoucher(subtotal);
+        const discount = voucher.amount;
+        const total = subtotal - discount;
+
         // Update order summary
-        orderSummary.textContent = `Subtotal: ৳ ${subtotal.toFixed(2)}`;
+        subtotalElement.textContent = `Subtotal: ৳ ${subtotal.toFixed(2)}`;
+        discountElement.textContent = `Discount: ৳ ${discount.toFixed(2)}`;
+        totalElement.textContent = `Total: ৳ ${total.toFixed(2)}`;
 
         // Update quantities
         document.querySelectorAll(".quantity-input").forEach(input => {
@@ -183,7 +197,6 @@
             });
         });
     });
-</script>
-
+    </script>
 </body>
 </html>
