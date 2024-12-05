@@ -46,6 +46,11 @@
             width: 50px;
             text-align: center;
         }
+        .action-btn:hover {
+            transform: scale(1.2); /* Enlarges the button slightly */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a shadow effect */
+            background-color: #0056b3; /* Slightly darker blue for hover effect */
+        }
         .action-btn, .remove-btn, .checkout-btn {
             cursor: pointer;
             border: none;
@@ -60,20 +65,37 @@
             background-color: #dc3545;
             color: #fff;
         }
+       .remove-btn:hover {
+            transform: scale(1.2); /* Enlarges the button slightly */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a shadow effect */
+            background-color: #c82333; /* Slightly darker red for hover effect */
+        }
+        .checkout-btn:hover {
+            transform: scale(1.01); /* Enlarges the button slightly */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a shadow effect */
+            background-color: #28a745; /* Slightly darker red for hover effect */
+        }
         .checkout-btn {
             background-color: #28a745;
             color: #fff;
             margin-top: 20px;
             width: 100%;
             font-size: 16px;
+            padding-right: 40px ;
+            padding-left:  40px ; 
         }
     </style>
+    <script>
+        function goToIndexPage() {
+            window.location.href = "index.html";
+        }
+    </script>
 </head>
 <body>
     <div class="container">
         <div class="cart-header">
             <h1>Your Shopping Cart</h1>
-            <button class="action-btn">Continue Shopping</button>
+            <button class="action-btn" onclick="goToIndexPage()">Continue Shopping</button>
         </div>
         <table class="cart-table">
             <thead>
