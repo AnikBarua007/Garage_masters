@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In / Register - GarageMaster</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">GarageMaster</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Cart</a></li>
+                    <li><a href="#">Profile</a></li>
+                </ul>
+            </nav>
+            <div class="contact">
+                <span>Contact Us At: garagemaster@gmail.com</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container auth-container">
+            <section id="auth-section">
+                <!-- Sign In Form -->
+                <div id="signin-form">
+                    <h2>Sign In</h2>
+                    <form id="loginForm">
+                        <label for="login-username">Username:</label>
+                        <input type="text" id="login-username" placeholder="Enter your username" required>
+                        <label for="login-password">Password:</label>
+                        <input type="password" id="login-password" placeholder="Enter your password" required>
+                        <button type="submit" class="btn">Sign In</button>
+                    </form>
+                </div>
+
+                <!-- Divider -->
+                <div class="divider">
+                    <span>OR</span>
+                </div>
+
+                <!-- Register Form -->
+                <div id="register-form">
+                    <h2>Register</h2>
+                    <form id="registerForm">
+                        <label for="register-username">Username:</label>
+                        <input type="text" id="register-username" placeholder="Choose a username" required>
+                        <label for="register-password">Password:</label>
+                        <input type="password" id="register-password" placeholder="Create a password" required>
+                        <button type="submit" class="btn">Register</button>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 GarageMaster. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Authentication -->
+    <script type="module">
+        import { registerUser, signInUser } from './design patterns/auth.js';
+
+        // Handle Registration Form Submission
+        document.getElementById("registerForm").addEventListener("submit", (e) => {
+            e.preventDefault();
+            const username = document.getElementById("register-username").value;
+            const password = document.getElementById("register-password").value;
+            registerUser(username, password);
+        });
+
+        // Handle Sign-In Form Submission
+        document.getElementById("loginForm").addEventListener("submit", (e) => {
+            e.preventDefault();
+            const username = document.getElementById("login-username").value;
+            const password = document.getElementById("login-password").value;
+            signInUser(username, password);
+        });
+    </script>
+</body>
+</html>

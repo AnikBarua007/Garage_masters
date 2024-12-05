@@ -20,8 +20,8 @@
             <div class="contact">
                 <span>Contact Us At: garagemaster@gmail.com</span>
             </div>
-            <div class="signinRegister">
-                <a href="signin.html">Sign in / Register</a>
+            <div class="signinRegister", id="user-info">
+                //<a href="signin.html">Sign in / Register</a>
             </div>
             <div class="cart">
                 <a href="#"><img src="images/shopping-cart (1).png" alt="Cart"> 0</a>
@@ -159,5 +159,26 @@
     </footer>
 
     <script src="scripts.js"></script>
+    <script>
+        // Display Signed-In Username
+        document.addEventListener("DOMContentLoaded", () => {
+            const username = localStorage.getItem("signedInUser");
+            const userInfoDiv = document.getElementById("user-info");
+
+            if (username) {
+                userInfoDiv.innerHTML = `
+                    <span>Welcome, ${username}</span>
+                    <button id="logout">Logout</button>
+                `;
+
+                document.getElementById("logout").addEventListener("click", () => {
+                    localStorage.removeItem("signedInUser");
+                    window.location.reload();
+                });
+            } else {
+                userInfoDiv.innerHTML = `<a href="signin.html">Sign In / Register</a>`;
+            }
+        });
+    </script>
 </body>
 </html>
