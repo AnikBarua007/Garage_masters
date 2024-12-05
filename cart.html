@@ -47,9 +47,9 @@
             text-align: center;
         }
         .action-btn:hover {
-            transform: scale(1.2); /* Enlarges the button slightly */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a shadow effect */
-            background-color: #0056b3; /* Slightly darker blue for hover effect */
+            transform: scale(1.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background-color: #0056b3;
         }
         .action-btn, .remove-btn, .checkout-btn {
             cursor: pointer;
@@ -66,14 +66,14 @@
             color: #fff;
         }
        .remove-btn:hover {
-            transform: scale(1.2); /* Enlarges the button slightly */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a shadow effect */
-            background-color: #c82333; /* Slightly darker red for hover effect */
+            transform: scale(1.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background-color: #c82333;
         }
         .checkout-btn:hover {
-            transform: scale(1.01); /* Enlarges the button slightly */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a shadow effect */
-            background-color: #28a745; /* Slightly darker red for hover effect */
+            transform: scale(1.01);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background-color: #28a745;
         }
         .checkout-btn {
             background-color: #28a745;
@@ -81,13 +81,17 @@
             margin-top: 20px;
             width: 100%;
             font-size: 16px;
-            padding-right: 40px ;
-            padding-left:  40px ; 
+            padding-right: 40px;
+            padding-left:  40px; 
         }
     </style>
     <script>
         function goToIndexPage() {
             window.location.href = "index.html";
+        }
+
+        function proceedToCheckout() {
+            window.location.href = "checkout.html";
         }
     </script>
 </head>
@@ -121,7 +125,7 @@
             <h3>Order Summary</h3>
             <p>Subtotal: $25.00</p>
         </div>
-        <button class="checkout-btn">Proceed to Checkout</button>
+        <button class="checkout-btn" onclick="proceedToCheckout()">Proceed to Checkout</button>
     </div>
 </body>
 </html>
