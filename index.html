@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>gg</title>
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <title>GarageMaster</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
@@ -21,28 +21,18 @@
                 <span>Contact Us At: garagemaster@gmail.com</span>
             </div>
             <div class="cart">
-                <a href="#"><img src="shopping-cart.png" alt="Cart"> 0</a>
+                <a href="#"><img src="images/shopping-cart (1).png" alt="Cart"> 0</a>
             </div>
         </div>
     </header>
     <main>
         <div class="container">
-            <aside>
-                <h2>Shop By Category</h2>
-                <ul>
-                    <li><a href="#">Show All Categories</a></li>
-                    <li><a href="#">Car Modification (17)</a></li>
-                </ul>
-                <h2>Filter By</h2>
-                <div class="filter">
-                    <label for="price">Price:</label>
-                    <input type="range" id="price" name="price" min="200" max="2000" value="2000">
-                    <span>৳ 200 — ৳ 2,000</span>
-                    <button>Filter</button>
-                </div>
-            </aside>
+            <section class="search">
+                <input type="text" id="search" placeholder="Search for Car or Bike accessories">
+                <button onclick="searchProducts()">Search</button>
+            </section>
             <section class="products">
-                <h1>Car Modification</h1>
+                <h1>Select items, add to cart or add to wishlist</h1>
                 <div class="sorting">
                     <label for="sort">Sort by:</label>
                     <select id="sort">
@@ -55,24 +45,104 @@
                 </div>
                 <div class="product-list">
                     <div class="product">
-                        <img src="product1.jpg" alt="DFSK Glory 580 i-auto Key Cover">
+                        <img src="images/p1.jpg" alt="DFSK Glory 580 i-auto Key Cover">
                         <h3>DFSK Glory 580 i-auto Key Cover Case – Metal Housing With TPU</h3>
                         <p>৳ 1,200 <span class="old-price">৳ 1,500</span></p>
                     </div>
                     <div class="product">
-                        <img src="product2.jpg" alt="Car Interior Light RGB Remote Control">
+                        <img src="images/p2.jpg" alt="Car Interior Light RGB Remote Control">
                         <h3>Car Interior Light RGB Remote Control Car Interior Decoration</h3>
                         <p>৳ 1,200 <span class="old-price">৳ 2,000</span></p>
                     </div>
                     <div class="product">
-                        <img src="product3.jpg" alt="Car Transformer Sticker">
+                        <img src="images/p3.jpg" alt="Car Transformer Sticker">
                         <h3>Car Transformer Sticker 8 cm Large Sticker Chrome Finish DIY</h3>
                         <p>৳ 300</p>
                     </div>
                     <div class="product">
-                        <img src="product4.jpg" alt="Zinc Alloy Wheel Rim Shape Car Key Ring">
+                        <img src="images/p4.jpg" alt="Zinc Alloy Wheel Rim Shape Car Key Ring">
                         <h3>Zinc Alloy Wheel Rim Shape Car Key Ring</h3>
                         <p>৳ 250</p>
+                    </div>
+                    <div class="product">
+                        <img src="images/p5.jpeg" alt="Bike LED Headlight">
+                        <h3>Bike LED Headlight – Bright and Durable</h3>
+                        <p>৳ 1,500</p>
+                    </div>
+                    <div class="product">
+                        <img src="images/p6.jpeg" alt="Bike Chain Cleaner">
+                        <h3>Bike Chain Cleaner – Effective and Easy to Use</h3>
+                        <p>৳ 800</p>
+                    </div>
+                    <div class="product">
+                        <img src="images/p7.jpeg" alt="Car Seat Cover">
+                        <h3>Car Seat Cover – Comfortable and Stylish</h3>
+                        <p>৳ 2,000</p>
+                    </div>
+                    <div class="product">
+                        <img src="images/p8.jpeg" alt="Car Air Freshener">
+                        <h3>Car Air Freshener – Long-lasting Fragrance</h3>
+                        <p>৳ 500</p>
+                    </div>
+                    <div class="product">
+                        <img src="images/p9.jpeg" alt="Bike Mobile Holder">
+                        <h3>Bike Mobile Holder – Secure and Adjustable</h3>
+                        <p>৳ 700</p>
+                    </div>
+                    <div class="product">
+                        <img src="images/p10.jpeg" alt="Car Vacuum Cleaner">
+                        <h3>Car Vacuum Cleaner – Portable and Powerful</h3>
+                        <p>৳ 1,800</p>
+                    </div>
+                    <div class="product">
+                        <img src="images/p11.jpeg" alt="Bike Handlebar Grips">
+                        <h3>Bike Handlebar Grips – Comfortable and Non-slip</h3>
+                        <p>৳ 600</p>
+                    </div>
+                    <div class="product">
+                        <img src="images/p12.jpeg" alt="Car GPS Tracker">
+                        <h3>Car GPS Tracker – Real-time Tracking</h3>
+                        <p>৳ 3,000</p>
+                    </div>
+                    <div class="product">
+                        <img src="images/p13.jpeg" alt="Bike Helmet">
+                        <h3>Bike Helmet – Protective and Comfortable</h3>
+                        <p>৳ 2,500</p>
+                    </div>
+                    <div class="product">
+                        <img src="images/p14.jpeg" alt="Car Dash Cam">
+                        <h3>Car Dash Cam – High-definition Recording</h3>
+                        <p>৳ 3,500</p>
+                    </div>
+                    <div class="product">
+                        <img src="images/p15.jpeg" alt="Bike Tire Pump">
+                        <h3>Bike Tire Pump – Compact and Efficient</h3>
+                        <p>৳ 900</p>
+                    </div>
+                    <div class="product">
+                        <img src="images/p16.jpeg" alt="Car Sunshade">
+                        <h3>Car Sunshade – Keeps Interior Cool</h3>
+                        <p>৳ 1,000</p>
+                    </div>
+                    <div class="product">
+                        <img src="images/p17.jpeg" alt="Bike Saddlebags">
+                        <h3>Bike Saddlebags – Spacious and Waterproof</h3>
+                        <p>৳ 2,000</p>
+                    </div>
+                    <div class="product">
+                        <img src="images/p18.jpeg" alt="Car Jump Starter">
+                        <h3>Car Jump Starter – Portable and Powerful</h3>
+                        <p>৳ 4,000</p>
+                    </div>
+                    <div class="product">
+                        <img src="images/p19.jpeg" alt="Bike Rearview Mirrors">
+                        <h3>Bike Rearview Mirrors – Wide-angle View</h3>
+                        <p>৳ 1,200</p>
+                    </div>
+                    <div class="product">
+                        <img src="images/p20.jpeg" alt="Car Bluetooth Adapter">
+                        <h3>Car Bluetooth Adapter – Hands-free Calling</h3>
+                        <p>৳ 1,500</p>
                     </div>
                 </div>
             </section>
@@ -80,7 +150,7 @@
     </main>
     <footer>
         <div class="container">
-            <p>&copy; 2024 garage master</p>
+            <p>&copy; 2024 GarageMaster</p>
         </div>
     </footer>
 
