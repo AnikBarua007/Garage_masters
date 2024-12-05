@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">GarageMaster</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Cart</a></li>
+                    <li><a href="#">Profile</a></li>
+                </ul>
+            </nav>
+            <div class="contact">
+                <span>Contact Us At: garagemaster@gmail.com</span>
+            </div>
+            <div id="user-info">
+                <!-- Sign In/ Register will dynamically render -->
+            </div>
+            <div class="cart">
+                <a href="#"><img src="images/shopping-cart (1).png" alt="Cart"> 0</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container product-details">
+            <div class="product-info">
+                <div class="product-image">
+                    <img src="images/p1.jpg" alt="Product Image">
+                </div>
+                <div class="product-content">
+                    <h1>DFSK Glory 580 i-auto Key Cover Case – Metal Housing With TPU</h1>
+                    <p>৳ 1,200 <span class="old-price">৳ 1,500</span></p>
+                    <div class="color-family">
+                        <label for="color">Color Family:</label>
+                        <select id="color">
+                            <option value="black">Black</option>
+                            <option value="silver">Silver</option>
+                            <option value="gold">Gold</option>
+                        </select>
+                    </div>
+                    <div class="quantity">
+                        <label for="quantity">Quantity:</label>
+                        <input type="number" id="quantity" value="1" min="1">
+                    </div>
+                    <div class="product-buttons">
+                        <button class="btn orange" onclick="addToCart()">Add to Cart</button>
+                        <button class="btn yellow" onclick="addToWishlist()">Add to Wishlist</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-description">
+                <h2>Description</h2>
+                <p>This key cover case is made of durable metal housing with TPU material to protect your car keys while offering a stylish design. Perfect for DFSK Glory 580 i-auto keys.</p>
+            </div>
+
+            <div class="product-reviews">
+                <h2>Reviews</h2>
+                <div class="rating">
+                    <label>
+                        <input type="radio" name="stars" value="1"> 1 Star
+                    </label>
+                    <label>
+                        <input type="radio" name="stars" value="2"> 2 Stars
+                    </label>
+                    <label>
+                        <input type="radio" name="stars" value="3"> 3 Stars
+                    </label>
+                    <label>
+                        <input type="radio" name="stars" value="4"> 4 Stars
+                    </label>
+                    <label>
+                        <input type="radio" name="stars" value="5"> 5 Stars
+                    </label>
+                </div>
+                <textarea placeholder="Write a review..." rows="4" cols="50"></textarea>
+                <button class="btn blue" onclick="submitReview()">Submit Review</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 GarageMaster</p>
+        </div>
+    </footer>
+
+    <script>
+        // Dynamic functionality for Add to Cart
+        function addToCart() {
+            alert("Product added to cart!");
+        }
+
+        // Dynamic functionality for Add to Wishlist
+        function addToWishlist() {
+            alert("Product added to wishlist!");
+        }
+
+        // Submit Review
+        function submitReview() {
+            alert("Thank you for your review!");
+        }
+    </script>
+</body>
+</html>

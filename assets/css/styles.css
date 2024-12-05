@@ -150,3 +150,12 @@ footer {
   padding: 15px 0;
   margin-top: 20px;
 }
+.product-item {
+  text-decoration: none;
+  color: inherit;
+}
+
+.product-item:hover .product-card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
