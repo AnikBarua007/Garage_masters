@@ -54,3 +54,4 @@ function addToCart(productId) {
 function addToWishlist(productId) {
     // Implement add to wishlist
 }
+
