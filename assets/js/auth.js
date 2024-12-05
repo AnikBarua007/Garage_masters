@@ -43,7 +43,7 @@ function registerUser(username, password) {
     }
 }
 
-// Function to handle user sign-in
+// Function that handle user sign-in
 function signInUser(username, password) {
     const user = userManager.getUser(username);
     if (user && user.password === password) {
