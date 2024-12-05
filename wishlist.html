@@ -8,15 +8,24 @@
 </head>
 <body>
   <header>
-    <h1>Garage Masters</h1>
-  </header>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="products.html">Products</a>
-    <a href="wishlist.html">Wishlist</a>
-    <a href="checkout.html">Checkout</a>
-    <a href="signin.html">Sign In / Register</a>
-  </nav>
+    <div class="logo">
+        <img src="gm.png" alt="Garage Master Logo">
+    </div>
+    <div id="user-info">
+        <!-- User Info Will Be Dynamically Injected Here -->
+    </div>
+    <hr class="dash-line">
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Car</a></li>
+            <li><a href="#">Bike</a></li>
+            <li><a href="preview.html">Preview</a></li>
+            <li><a href="#">Cart</a></li>
+            <li><a href="#">Profile</a></li>
+        </ul>
+    </nav>
+</header>
 
   <div id="wishlist-container">
     <div id="wishlist-header">
@@ -29,5 +38,7 @@
   </div>
 
   <script src="assets/js/wishlist.js"></script>
+  <script src="assets/js/auth.js" type="module"></script>
+
 </body>
 </html>

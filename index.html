@@ -11,28 +11,46 @@
         <div class="logo">
             <img src="gm.png" alt="Garage Master Logo">
         </div>
+        <div id="user-info">
+            <!-- User Info Will Be Dynamically Injected Here -->
+        </div>
         <hr class="dash-line">
         <nav>
             <ul>
-
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Car</a></li>
                 <li><a href="#">Bike</a></li>
-                <li><a href="#">Preview</a></li>
+                <li><a href="preview.html">Preview</a></li>
                 <li><a href="#">Cart</a></li>
                 <li><a href="#">Profile</a></li>
-                <li><a href="signin.html">Sign In / Register</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <section class="product-list">
-        </section>
+        <section class="product-list"></section>
     </main>
     <footer>
-
         <a href="#" class="next-page">Next Page</a>
     </footer>
-    <script src="script.js"></script>
-</body>
-</html>
+    <script src="assets/js/auth.js" type="module"></script>
+    <script>
+        // Display Signed-In Username
+        document.addEventListener("DOMContentLoaded", () => {
+            const username = localStorage.getItem("signedInUser");
+            const userInfoDiv = document.getElementById("user-info");
+
+            if (username) {
+                userInfoDiv.innerHTML = `
+                    <span>Welcome, ${username}</span>
+                    <button id="logout">Logout</button>
+                `;
+
+                document.getElementById("logout").addEventListener("click", () => {
+                    localStorage.removeItem("signedInUser");
+                    window.location.reload();
+                });
+            } else {
+                userInfoDiv.innerHTML = `<a href="signin.html">Sign In / Register</a>`;
+            }
+        });
+   

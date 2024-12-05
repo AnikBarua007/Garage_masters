@@ -12,7 +12,8 @@
     </header>
     <main>
         <div id="auth-container">
-            <div id="sign-in-form">
+            <!-- Sign In Form -->
+            <div id="signin-form">
                 <h2>Sign In</h2>
                 <form id="loginForm">
                     <label for="login-username">Username:</label>
@@ -22,6 +23,8 @@
                     <button type="submit">Sign In</button>
                 </form>
             </div>
+
+            <!-- Register Form -->
             <div id="register-form">
                 <h2>Register</h2>
                 <form id="registerForm">
@@ -34,5 +37,30 @@
             </div>
         </div>
     </main>
+    <footer>
+        <p>&copy; 2024 Garage Masters. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Authentication -->
+    <script type="module">
+        import { registerUser, signInUser } from './assets/js/auth.js';
+    
+        // Handle Registration Form Submission
+        document.getElementById("registerForm").addEventListener("submit", (e) => {
+            e.preventDefault();
+            const username = document.getElementById("register-username").value;
+            const password = document.getElementById("register-password").value;
+            registerUser(username, password);
+        });
+    
+        // Handle Sign-In Form Submission
+        document.getElementById("loginForm").addEventListener("submit", (e) => {
+            e.preventDefault();
+            const username = document.getElementById("login-username").value;
+            const password = document.getElementById("login-password").value;
+            signInUser(username, password);
+        });
+    </script>
+    
 </body>
 </html>
