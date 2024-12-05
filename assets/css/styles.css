@@ -1,228 +1,146 @@
-/* General Styles */
 body {
   font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
   margin: 0;
   padding: 0;
-  background-color: #f5f5f5;
-  color: #333;
 }
-
-/* Header and Navigation */
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
 header {
-  background-color: #4caf50;
-  padding: 10px 20px;
-  color: white;
-  text-align: center;
+  background-color: #000;
+  color: #fff;
+  padding: 15px 0;
 }
-
-nav {
-  margin: 20px 0;
-  text-align: center;
-}
-
-nav a {
-  margin: 0 10px;
-  text-decoration: none;
-  color: #4caf50;
-  font-weight: bold;
-}
-
-nav a:hover {
-  text-decoration: underline;
-}
-
-/* Wishlist Page */
-#wishlist-container {
-  max-width: 800px;
-  margin: 20px auto;
-  background-color: white;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-#wishlist-header {
-  background-color: #4caf50;
-  color: white;
-  padding: 15px;
-  text-align: center;
-}
-
-.wishlist-item {
+header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px;
-  border-bottom: 1px solid #ddd;
 }
-
-.wishlist-item:last-child {
-  border-bottom: none;
+.logo {
+  font-size: 24px;
+  font-weight: bold;
 }
-
-.wishlist-item span {
-  flex: 1;
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+nav ul li {
+  margin-right: 20px;
+}
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+.contact {
+  font-size: 14px;
+}
+.cart a {
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+.cart a img {
+  margin-right: 5px;
+}
+main {
+  display: flex;
+  padding: 20px 0;
+}
+aside {
+  width: 25%;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+aside h2 {
+  border-bottom: 2px solid #000;
+  padding-bottom: 10px;
+}
+aside ul {
+  list-style: none;
+  padding: 0;
+}
+aside ul li {
+  margin-bottom: 10px;
+}
+aside ul li a {
+  color: #000;
+  text-decoration: none;
+}
+.filter {
+  margin-top: 20px;
+}
+.filter label {
+  display: block;
+  margin-bottom: 10px;
+}
+.filter input[type=range] {
+  width: 100%;
+}
+.filter button {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.products {
+  width: 75%;
+  padding-left: 20px;
+}
+.products h1 {
+  border-bottom: 2px solid #000;
+  padding-bottom: 10px;
+}
+.sorting {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.sorting label {
+  margin-right: 10px;
+}
+.sorting select {
+  margin-right: 20px;
+}
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.product {
+  width: calc(50% - 10px);
+  margin-right: 20px;
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+.product img {
+  max-width: 100%;
+  height: auto;
+}
+.product h3 {
+  font-size: 18px;
+  margin: 10px 0;
+}
+.product p {
   font-size: 16px;
 }
-
-.wishlist-item button {
-  background-color: #f44336;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  cursor: pointer;
-  border-radius: 5px;
+.product .old-price {
+  text-decoration: line-through;
+  color: #888;
 }
-
-.wishlist-item button:hover {
-  background-color: #d32f2f;
-}
-
-/* Checkout Button */
-.checkout {
-  display: block;
-  width: 100%;
-  padding: 15px;
-  text-align: center;
-  background-color: #4caf50;
-  color: white;
-  text-decoration: none;
-  font-size: 18px;
-  font-weight: bold;
-  border: none;
-  cursor: pointer;
-}
-
-.checkout:hover {
-  background-color: #45a049;
-}
-
-body {
-    font-family: 'Roboto', sans-serif; /* Use a more elegant font */
-    background: #2c3e50 url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #ecf0f1;
-}
-
-header {
-    text-align: center;
-    margin: 0;
-    padding: 20px 0;
-    width: 100%;
-}
-
-.logo img {
-    width: 150px; /* Resize the logo */
-    height: auto;
-}
-
-.dash-line {
-    border: 0;
-    border-top: 2px dashed #ecf0f1; /* Style the dash line */
-    width: 100%; /* Make the dash line full width */
-    margin: 0;
-}
-
-nav ul {
-    list-style-type: none;
-    padding: 10px 0;
-    margin: 0;
-    display: flex;
-    justify-content: center; /* Center the navigation menu */
-    background-color: #2c3e50; /* Darker background for a classier look */
-    border-top: 2px solid #ecf0f1;
-}
-
-nav ul li {
-    margin: 0 20px; /* Increase space between menu items */
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #ecf0f1;
-    padding: 10px 15px; /* Add padding to menu items */
-    transition: color 0.3s, background-color 0.3s;
-    border-bottom: 2px solid transparent; /* Add underline effect */
-}
-
-nav ul li a:hover {
-    color: #1abc9c;
-    border-bottom: 2px solid #1abc9c; /* Add a subtle underline on hover */
-}
-
-main {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    width: 100%;
-}
-
-.product-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
-}
-
-.product-item {
-    border: 1px solid #ecf0f1;
-    border-radius: 10px;
-    background: #2c3e50;
-    padding: 10px;
-    text-align: center;
-    width: 200px;
-    transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
-}
-
-.product-item:hover {
-    transform: scale(1.05); /* Scale up on hover */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
-    background-color: #34495e; /* Subtle change on hover */
-}
-
-.product-item img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    margin-bottom: 10px;
-}
-
-.product-item .name {
-    margin: 10px 0;
-    color: #1abc9c;
-    font-weight: bold;
-    font-size: 1.1em;
-}
-
-.product-item .price {
-    margin: 10px 0;
-    color: #e74c3c;
-    font-weight: bold;
-    font-size: 1.1em;
-}
-
 footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-    background: #2c3e50;
-    padding: 10px 0;
-    border-top: 2px solid #ecf0f1;
-}
-
-.next-page {
-    color: #ecf0f1;
-    text-decoration: none;
-    font-size: 1.2em;
-    transition: color 0.3s;
-}
-
-.next-page:hover {
-    color: #1abc9c;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 20px;
 }
