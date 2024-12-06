@@ -19,9 +19,9 @@ scalability.
 <br>
 Design patterns:
 <br>
-1. Strategy design pattern: This design pattern is used to search for accessories between two categories: 'car' and 'bike'.  By: Shoumik Sarkar
-2. Singleton design pattern: This design pattern is used to build the register and login functionality. By: Sumon Das
-3. Composite design pattern: This design pattern is used to make packages with various accessories that can be added to the user. By: Shakib Ahmed
-4. Decorator design pattern: This design pattern is used to build the cart page so that customers can add various products with the base item. By: Anik Barua
-5. Adapter design pattern: This design pattern converts currency from BDT to USD. By: Sumon Das
-6. Factory design pattern: This design pattern creates vouchers based on condition. By: Shoumik Sarkar
+1. Strategy design pattern: This design pattern is used to search for accessories between two categories: 'car' and 'bike'.
+2. Singleton design pattern: This design pattern is used to build the register and login functionality.
+3. Composite design pattern: This design pattern is used to make packages with various accessories that can be added to the user.
+4. Decorator design pattern: This design pattern is used to build the cart page so that customers can add various products with the base item.
+5. Adapter design pattern: This design pattern converts currency from BDT to USD.
+6. Factory design pattern: This design pattern creates vouchers based on condition.
