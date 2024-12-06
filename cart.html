@@ -70,13 +70,13 @@
                     <li><a href="#">Profile</a></li>
                 </ul>
             </nav>
+            <div class="signinRegister" id="user-info">
+                <!-- Dynamic sign-in info -->
+            </div>
             <div class="cart">
                 <a href="cart.html">
                     <img src="images/shopping-cart (1).png" alt="Cart"> Cart
                 </a>
-            </div>
-            <div class="signinRegister">
-                <a href="login.html">Login / Register</a>
             </div>
         </div>
     </header>
@@ -185,6 +185,27 @@
                     window.location.reload();
                 });
             });
+        });
+    </script>
+    <script>
+        // Display Signed-In Username
+        document.addEventListener("DOMContentLoaded", () => {
+            const username = localStorage.getItem("signedInUser");
+            const userInfoDiv = document.getElementById("user-info");
+
+            if (username) {
+                userInfoDiv.innerHTML = `
+                        <span>Welcome, ${username}</span>
+                        <button id="logout">Logout</button>
+                    `;
+
+                document.getElementById("logout").addEventListener("click", () => {
+                    localStorage.removeItem("signedInUser");
+                    window.location.reload();
+                });
+            } else {
+                userInfoDiv.innerHTML = `<a href="signin.html">Sign In / Register</a>`;
+            }
         });
     </script>
 </body>
