@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +12,7 @@
             margin: 0;
             padding: 0;
         }
+
         .container {
             max-width: 800px;
             margin: 50px auto;
@@ -20,14 +22,17 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
+
         .success-message {
             font-size: 24px;
             color: #28a745;
             margin: 20px 0;
         }
+
         .user-name {
             font-weight: bold;
         }
+
         .back-btn {
             margin-top: 20px;
             background-color: #007bff;
@@ -38,6 +43,7 @@
             cursor: pointer;
             text-decoration: none;
         }
+
         .back-btn:hover {
             background-color: #0056b3;
         }
@@ -47,7 +53,7 @@
         function getLoggedInUsername() {
             // Simulate fetching the username from session/localStorage
             // Replace this logic with actual user authentication data retrieval
-            return localStorage.getItem("username") || "Guest";
+            return localStorage.getItem("username");
         }
 
         // Display the success message with dynamic username
@@ -58,13 +64,15 @@
         });
     </script>
 </head>
+
 <body>
     <div class="container">
         <h1>Checkout Successful!</h1>
         <p class="success-message">
-            Congratulations, <span id="user-name" class="user-name"></span>. Your order has been placed successfully.
+            Congratulations, <span id="user-name" class="user-name"></span> Your order has been placed successfully.
         </p>
         <a href="index.html" class="back-btn">Back to Home</a>
     </div>
 </body>
+
 </html>
