@@ -55,3 +55,14 @@ function addToWishlist(productId) {
     // Implement add to wishlist
 }
 
+export function registerUser(username, password) {
+    // Registration logic
+    alert(User ${username} registered successfully.);
+    localStorage.setItem("username", username); // Save username
+}
+
+export function signInUser(username, password) {
+    // Sign-in logic
+    alert(Welcome back, ${username}!);
+    localStorage.setItem("username", username); // Save username
+}
