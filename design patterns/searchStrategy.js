@@ -1,4 +1,4 @@
-// designPatterns/searchStrategy.js
+// design Patterns/searchStrategy.js
 
 class SearchStrategy {
     constructor(products) {
