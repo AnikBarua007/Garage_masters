@@ -85,6 +85,8 @@
             padding-left:  40px; 
         }
     </style>
+        <script src="design patterns/adapter.js"></script>
+        
     <script>
         function goToIndexPage() {
             window.location.href = "index.html";
@@ -131,72 +133,76 @@
     </div>
     <script src="voucherFactory.js"></script>
     <script>
-    // Load cart items from localStorage
-    document.addEventListener("DOMContentLoaded", () => {
-        const cartTableBody = document.querySelector(".cart-table tbody");
-        const subtotalElement = document.getElementById("subtotal");
-        const discountElement = document.getElementById("discount");
-        const totalElement = document.getElementById("total");
+        // Load cart items from localStorage
+        document.addEventListener("DOMContentLoaded", () => {
+            const cartTableBody = document.querySelector(".cart-table tbody");
+            const subtotalElement = document.getElementById("subtotal");
+            const discountElement = document.getElementById("discount");
+            const totalElement = document.getElementById("total");
 
-        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-        // Check if the cart is empty
-        if (cart.length === 0) {
-            cartTableBody.innerHTML = `<tr><td colspan="5">Your cart is empty!</td></tr>`;
-            subtotalElement.textContent = "Subtotal: $0.00";
-            discountElement.textContent = "Discount: $0.00";
-            totalElement.textContent = "Total: $0.00";
-            return;
-        }
+            // Check if the cart is empty
+            if (cart.length === 0) {
+                cartTableBody.innerHTML = `<tr><td colspan="5">Your cart is empty!</td></tr>`;
+                subtotalElement.textContent = "Subtotal: $0.00";
+                discountElement.textContent = "Discount: $0.00";
+                totalElement.textContent = "Total: $0.00";
+                return;
+            }
 
-        // Populate cart table
-        let subtotal = 0;
-        cartTableBody.innerHTML = cart
-            .map((item, index) => {
-                const total = parseFloat(item.price) * item.quantity;
-                subtotal += total;
-                return `
-                    <tr>
-                        <td>${item.name} (${item.color})</td>
-                        <td>৳ ${item.price}</td>
-                        <td><input type="number" class="quantity-input" value="${item.quantity}" min="1" data-index="${index}"></td>
-                        <td>৳ ${total.toFixed(2)}</td>
-                        <td><button class="remove-btn" data-index="${index}">Remove</button></td>
-                    </tr>
-                `;
-            })
-            .join("");
+            // Populate cart table
+            let subtotalBdt = 0;
+            cartTableBody.innerHTML = cart
+                .map((item, index) => {
+                    const totalBdt = parseFloat(item.price) * item.quantity;
+                    subtotalBdt += totalBdt;
+                    const totalUsd = currencyAdapter.convertToUsd(totalBdt);
+                    return `
+                        <tr>
+                            <td>${item.name} (${item.color})</td>
+                            <td>৳ ${item.price}</td>
+                            <td><input type="number" class="quantity-input" value="${item.quantity}" min="1" data-index="${index}"></td>
+                            <td>৳ ${totalBdt.toFixed(2)} / $${totalUsd.toFixed(2)}</td>
+                            <td><button class="remove-btn" data-index="${index}">Remove</button></td>
+                        </tr>
+                    `;
+                })
+                .join("");
 
-        // Apply voucher discount using Factory pattern
-        const voucher = VoucherFactory.createVoucher(subtotal);
-        const discount = voucher.amount;
-        const total = subtotal - discount;
+            // Apply voucher discount using Factory pattern
+            const voucher = VoucherFactory.createVoucher(subtotalBdt);
+            const discountBdt = voucher.amount;
+            const totalBdt = subtotalBdt - discountBdt;
+            const totalUsd = currencyAdapter.convertToUsd(totalBdt);
 
-        // Update order summary
-        subtotalElement.textContent = `Subtotal: ৳ ${subtotal.toFixed(2)}`;
-        discountElement.textContent = `Discount: ৳ ${discount.toFixed(2)}`;
-        totalElement.textContent = `Total: ৳ ${total.toFixed(2)}`;
+            // Update order summary
+            subtotalElement.textContent = `Subtotal: ৳ ${subtotalBdt.toFixed(2)} / $${currencyAdapter.convertToUsd(subtotalBdt).toFixed(2)}`;
+            discountElement.textContent = `Discount: ৳ ${discountBdt.toFixed(2)} / $${currencyAdapter.convertToUsd(discountBdt).toFixed(2)}`;
+            totalElement.textContent = `Total: ৳ ${totalBdt.toFixed(2)} / $${totalUsd.toFixed(2)}`;
 
-        // Update quantities
-        document.querySelectorAll(".quantity-input").forEach(input => {
-            input.addEventListener("change", e => {
-                const index = e.target.dataset.index;
-                cart[index].quantity = parseInt(e.target.value);
-                localStorage.setItem("cart", JSON.stringify(cart));
-                window.location.reload();
+            // Update quantities
+            document.querySelectorAll(".quantity-input").forEach(input => {
+                input.addEventListener("change", e => {
+                    const index = e.target.dataset.index;
+                    cart[index].quantity = parseInt(e.target.value);
+                    localStorage.setItem("cart", JSON.stringify(cart));
+                    window.location.reload();
+                });
+            });
+
+            // Remove items from the cart
+            document.querySelectorAll(".remove-btn").forEach(button => {
+                button.addEventListener("click", e => {
+                    const index = e.target.dataset.index;
+                    cart.splice(index, 1);
+                    localStorage.setItem("cart", JSON.stringify(cart));
+                    window.location.reload();
+                });
             });
         });
 
-        // Remove items from the cart
-        document.querySelectorAll(".remove-btn").forEach(button => {
-            button.addEventListener("click", e => {
-                const index = e.target.dataset.index;
-                cart.splice(index, 1);
-                localStorage.setItem("cart", JSON.stringify(cart));
-                window.location.reload();
-            });
-        });
-    });
+
     </script>
 </body>
 </html>
